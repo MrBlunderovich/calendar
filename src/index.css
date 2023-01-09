@@ -1,13 +1,98 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  --outer-diameter: 95vmin;
+  --inner-circle-diameter: calc(var(--outer-diameter) * 0.4);
+  --week-div-width: calc(var(--outer-diameter) * 0.05);
+  --day-scale-factor: 0.88;
+  --day1-diam: var(--week-div-width);
+  --day2-diam: calc(var(--day1-diam) * var(--day-scale-factor));
+  --day3-diam: calc(var(--day2-diam) * var(--day-scale-factor));
+  --day4-diam: calc(var(--day3-diam) * var(--day-scale-factor));
+  --day5-diam: calc(var(--day4-diam) * var(--day-scale-factor));
+  --day6-diam: calc(var(--day5-diam) * var(--day-scale-factor));
+  --day7-diam: calc(var(--day6-diam) * var(--day-scale-factor));
+}
+body {
+  background-color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.abs {
+  position: absolute;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.App {
+  width: 100%;
+  height: 100vh;
+}
+#center-point {
+  position: relative;
+}
+.center-circle {
+  width: var(--inner-circle-diameter);
+  height: var(--inner-circle-diameter);
+  left: calc(var(--inner-circle-diameter) / -2);
+  top: calc(var(--inner-circle-diameter) / -2);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 50%;
+}
+.Week {
+  width: var(--week-div-width);
+  height: var(--outer-diameter);
+  left: calc(var(--week-div-width) / -2);
+  top: calc(var(--outer-diameter) / -2);
+  /* border: 1px solid #999; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--week-div-width) * 0.1);
+}
+.Day {
+  border-radius: 50%;
+  border: 1px solid black;
+  width: var(--week-div-width);
+  height: var(--week-div-width);
+  font-size: calc(var(--week-div-width) * 0.3);
+  background-color: hsl(160, 38%, 58%);
+  /* background-color: rgb(109, 189, 162); */
+}
+.day1 {
+  width: var(--day1-diam);
+  height: var(--day1-diam);
+}
+.day2 {
+  width: var(--day2-diam);
+  height: var(--day2-diam);
+}
+.day3 {
+  width: var(--day3-diam);
+  height: var(--day3-diam);
+}
+.day4 {
+  width: var(--day4-diam);
+  height: var(--day4-diam);
+}
+.day5 {
+  width: var(--day5-diam);
+  height: var(--day5-diam);
+}
+.day6 {
+  width: var(--day6-diam);
+  height: var(--day6-diam);
+}
+.day7 {
+  width: var(--day7-diam);
+  height: var(--day7-diam);
 }
