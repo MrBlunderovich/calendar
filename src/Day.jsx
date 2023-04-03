@@ -12,7 +12,11 @@ const Day = (props) => {
   const thisDay = thisDate.getDate();
   const thisMonth = thisDate.getMonth() + 1;
 
-  const months = [
+  /* function thisMonthInverted(){
+
+  } */
+
+  /* const months = [
     { number: 1, name: "Январь", color: "" },
     { number: 2, name: "Февраль", color: "" },
     { number: 3, name: "Март", color: "" },
@@ -25,7 +29,21 @@ const Day = (props) => {
     { number: 10, name: "Октябрь", color: "" },
     { number: 11, name: "Ноябрь", color: "" },
     { number: 12, name: "Декабрь", color: "" },
-  ];
+  ]; */
+  /* const monthColors = [
+    '#4080bf',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '#40bfbf',
+  ] */
   //console.log(thisDay);
 
   function getDayOfWeek(weekNumber, dayOfWeek) {
@@ -50,7 +68,7 @@ const Day = (props) => {
       data-week={props.weekNumber}
       style={{
         transform: `rotate(-${props.angle + 180}deg)`,
-        backgroundColor: `hsl(${thisMonth * 30 + 210},50%,50%)`,
+        backgroundColor: `hsl(${thisMonth * -30 + 230},50%,50%)`,
       }}
     >
       {getDayOfWeek(props.weekNumber, props.index)}
