@@ -1,4 +1,4 @@
-import { isSameWeek } from "date-fns";
+import { isSameWeek, isToday } from "date-fns";
 
 const Day = (props) => {
   const firstDayOfYear = new Date(props.firstDayOfYear);
@@ -55,30 +55,15 @@ const Day = (props) => {
   ] */
   //console.log(thisDay);
   function isCurrentWeek() {
-    //if today is THE year and THE week
-    //return classname corresponding to highlighting css
-    /* if (isSameWeek(new Date(), thisDate, { weekStartsOn: 1 })) {
-      console.log(thisDate);
-      console.log("MATCH");
-      return "current-week";
-    } else {
-      return "";
-    } */
     if (isSameWeek(new Date(), thisDate, { weekStartsOn: 1 })) {
       return true;
     } else {
       return false;
     }
-
-    //const today = new Date()
-    //const todayWeekNumber =
   }
 
   function getDayOfWeek(weekNumber, dayOfWeek) {
     const dayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
-    /* const thisDate = props.firstDayOfYear.setDate(
-      props.firstDayOfYear.getDate() + dayOfYearNumber - 1
-    ); */
     if (weekNumber === 0) {
       return dayNames[dayOfWeek - 1];
     } else {
@@ -89,6 +74,16 @@ const Day = (props) => {
       }
     }
   }
+  function constructBoxShadow() {
+    if (!isCurrentWeek()) {
+      return "none";
+    } else if (isToday(thisDate)) {
+      return `0 0 0px 3px ${getDayColor(-120)}`;
+    } else if (isCurrentWeek()) {
+      return `0 0 0px 3px ${getDayColor(-60)}`;
+    }
+  }
+
   return (
     <div
       className={`Day flex-center day${props.index} ${isCurrentWeek()}`}
@@ -97,9 +92,7 @@ const Day = (props) => {
       style={{
         transform: `rotate(-${props.angle + 180}deg)`,
         backgroundColor: getDayColor(),
-        boxShadow: isCurrentWeek()
-          ? `0 0 10px 3px ${getDayColor(-60)}`
-          : "none",
+        boxShadow: constructBoxShadow(),
       }}
     >
       {getDayOfWeek(props.weekNumber, props.index)}
