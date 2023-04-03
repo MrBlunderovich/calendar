@@ -4,7 +4,7 @@ import React from "react";
 const App = () => {
   //const [dayDiameters, setDayDiameters] = React.useState([])
   //const weekNumber = 1;
-  const nowYear = new Date(2022, 1, 1).getFullYear();
+  const nowYear = new Date(2023, 1, 1).getFullYear();
   const yearStart = new Date(nowYear, 0, 1);
   const janFirstOffset = yearStart.getDay();
   console.log({ janFirstOffset });

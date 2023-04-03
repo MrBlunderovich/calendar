@@ -11,6 +11,21 @@ const Day = (props) => {
   //console.log(thisDate);
   const thisDay = thisDate.getDate();
   const thisMonth = thisDate.getMonth() + 1;
+
+  const months = [
+    { number: 1, name: "Январь", color: "" },
+    { number: 2, name: "Февраль", color: "" },
+    { number: 3, name: "Март", color: "" },
+    { number: 4, name: "Апрель", color: "" },
+    { number: 5, name: "Май", color: "" },
+    { number: 6, name: "Июнь", color: "" },
+    { number: 7, name: "Июль", color: "" },
+    { number: 8, name: "Август", color: "" },
+    { number: 9, name: "Сентябрь", color: "" },
+    { number: 10, name: "Октябрь", color: "" },
+    { number: 11, name: "Ноябрь", color: "" },
+    { number: 12, name: "Декабрь", color: "" },
+  ];
   //console.log(thisDay);
 
   function getDayOfWeek(weekNumber, dayOfWeek) {
