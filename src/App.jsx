@@ -7,7 +7,7 @@ const App = () => {
   const nowYear = new Date(2023, 1, 1).getFullYear();
   const yearStart = new Date(nowYear, 0, 1);
   const janFirstOffset = yearStart.getDay();
-  console.log({ janFirstOffset });
+  //console.log({ janFirstOffset });
   const firstDayOfYear = new Date(nowYear, 0, 1);
   /* console.log({ firstDayOfYear });
   console.log({ getdate: firstDayOfYear.getDate() });

@@ -12,6 +12,13 @@ const Day = (props) => {
   const thisDay = thisDate.getDate();
   const thisMonth = thisDate.getMonth() + 1;
 
+  function getDayColor() {
+    if (props.weekNumber === 0) {
+      return "#cbb60d";
+    }
+    return `hsl(${-thisMonth * 30 + thisDay * 0.7 + 230},50%,50%)`;
+    //return `hsl(${thisMonth * -30 + 230},50%,50%)`;
+  }
   /* function thisMonthInverted(){
 
   } */
@@ -45,6 +52,10 @@ const Day = (props) => {
     '#40bfbf',
   ] */
   //console.log(thisDay);
+  function isCurrentWeek() {
+    //if today is THE year and THE week
+    //return classname corresponding to highlighting css
+  }
 
   function getDayOfWeek(weekNumber, dayOfWeek) {
     const dayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
@@ -63,12 +74,12 @@ const Day = (props) => {
   }
   return (
     <div
-      className={`Day flex-center day${props.index}`}
+      className={`Day flex-center day${props.index} ${isCurrentWeek()}`}
       id={props.id}
       data-week={props.weekNumber}
       style={{
         transform: `rotate(-${props.angle + 180}deg)`,
-        backgroundColor: `hsl(${thisMonth * -30 + 230},50%,50%)`,
+        backgroundColor: getDayColor(),
       }}
     >
       {getDayOfWeek(props.weekNumber, props.index)}
@@ -77,3 +88,5 @@ const Day = (props) => {
 };
 
 export default Day;
+
+//backgroundColor: `hsl(${thisMonth * -30 + 230},50%,50%)`,
