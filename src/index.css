@@ -96,3 +96,7 @@ body {
   width: var(--day7-diam);
   height: var(--day7-diam);
 }
+
+/* .current-week {
+  box-shadow: 0 0 10px 3px white;
+} */

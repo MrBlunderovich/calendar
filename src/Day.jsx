@@ -1,3 +1,5 @@
+import { isSameWeek } from "date-fns";
+
 const Day = (props) => {
   const firstDayOfYear = new Date(props.firstDayOfYear);
   const dayOfYearNumber =
@@ -12,11 +14,11 @@ const Day = (props) => {
   const thisDay = thisDate.getDate();
   const thisMonth = thisDate.getMonth() + 1;
 
-  function getDayColor() {
+  function getDayColor(offset = 0) {
     if (props.weekNumber === 0) {
-      return "#cbb60d";
+      return "hsl(53.37 87.96% 42.35%)";
     }
-    return `hsl(${-thisMonth * 30 + thisDay * 0.7 + 230},50%,50%)`;
+    return `hsl(${-thisMonth * 30 + thisDay * 0.7 + 230 + offset},50%,50%)`;
     //return `hsl(${thisMonth * -30 + 230},50%,50%)`;
   }
   /* function thisMonthInverted(){
@@ -55,6 +57,21 @@ const Day = (props) => {
   function isCurrentWeek() {
     //if today is THE year and THE week
     //return classname corresponding to highlighting css
+    /* if (isSameWeek(new Date(), thisDate, { weekStartsOn: 1 })) {
+      console.log(thisDate);
+      console.log("MATCH");
+      return "current-week";
+    } else {
+      return "";
+    } */
+    if (isSameWeek(new Date(), thisDate, { weekStartsOn: 1 })) {
+      return true;
+    } else {
+      return false;
+    }
+
+    //const today = new Date()
+    //const todayWeekNumber =
   }
 
   function getDayOfWeek(weekNumber, dayOfWeek) {
@@ -80,6 +97,9 @@ const Day = (props) => {
       style={{
         transform: `rotate(-${props.angle + 180}deg)`,
         backgroundColor: getDayColor(),
+        boxShadow: isCurrentWeek()
+          ? `0 0 10px 3px ${getDayColor(-60)}`
+          : "none",
       }}
     >
       {getDayOfWeek(props.weekNumber, props.index)}
