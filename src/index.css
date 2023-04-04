@@ -45,8 +45,12 @@ body {
   height: var(--inner-circle-diameter);
   left: calc(var(--inner-circle-diameter) / -2);
   top: calc(var(--inner-circle-diameter) / -2);
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid #ccc;
   border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .Week {
   width: var(--week-div-width);
@@ -67,6 +71,7 @@ body {
   font-size: calc(var(--week-div-width) * 0.3);
   background-color: hsl(160, 38%, 58%);
   /* background-color: rgb(109, 189, 162); */
+  font-weight: 500;
 }
 .day1 {
   width: var(--day1-diam);
@@ -97,6 +102,8 @@ body {
   height: var(--day7-diam);
 }
 
-/* .current-week {
-  box-shadow: 0 0 10px 3px white;
-} */
+.now-year {
+  font-size: 8rem;
+  font-weight: 700;
+  color: #ccc;
+}

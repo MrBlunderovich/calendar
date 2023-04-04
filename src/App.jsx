@@ -40,8 +40,9 @@ const App = () => {
   return (
     <div className="App flex-center">
       <div className="center-point" id="center-point">
-        <div className="abs">{nowYear}</div>
-        <div className="center-circle abs" id="center-circle"></div>
+        <div className="center-circle abs" id="center-circle">
+          <div className="now-year">{nowYear}</div>
+        </div>
         {weeksArray.map((week) => (
           <Week
             id={`week${week}`}
