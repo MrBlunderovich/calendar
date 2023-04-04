@@ -99,6 +99,7 @@ const Day = (props) => {
         transform: `rotate(-${props.angle + 180}deg)`,
         backgroundColor: getDayColor(),
         boxShadow: constructBoxShadow(),
+        color: isPast(endOfDay(thisDate)) ? "#444" : "inherit",
       }}
     >
       {getDayOfWeek(props.weekNumber, props.index)}
