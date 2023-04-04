@@ -20,7 +20,8 @@ const Day = (props) => {
       sat = "20%";
     }
     if (props.weekNumber === 0) {
-      return "hsl(53.37 87.96% 42.35%)";
+      return "hsl(350.55deg 49.8% 50%)";
+      //return "hsl(53.37 87.96% 42.35%)";
     }
     return `hsl(${-thisMonth * 30 + thisDay * 0.7 + 230 + offset},${sat},50%)`;
     /* return `hsl(${-thisMonth * 30 + thisDay * 0.7 + 230 + offset},50%,50%)`; */
