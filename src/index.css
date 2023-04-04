@@ -52,6 +52,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+.week-number {
+  color: #ccc;
+}
 .Week {
   width: var(--week-div-width);
   height: var(--outer-diameter);
